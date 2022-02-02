@@ -11,7 +11,54 @@
   <title>Tic Tac Toe game</title>
 </head>
 <body>
-  
+  <header class="intro">
+    <div class="container">
+      <h1 class="intro__title">Welcome Tic Toc Toe game</h1>
+    </div>
+  </header>
+  <!-- ============ MAIN ============ -->
+  <main class="main">
+    <div class="container">
+      <div class="descr"></div>
+    </div>
+    <div class="container">
+      <!-- Desk for play -->
+      <section class="board">
+        <div class="board__sqr-1"></div>
+        <div class="board__sqr-2"></div>
+        <div class="board__sqr-3"></div>
+        <div class="board__sqr-4"></div>
+        <div class="board__sqr-5"></div>
+        <div class="board__sqr-6"></div>
+        <div class="board__sqr-7"></div>
+        <div class="board__sqr-8"></div>
+        <div class="board__sqr-9"></div>
+      </section>
+      <!-- High score table -->
+      <aside class="score">
+        <h2 class="score__title">High score</h2>
+      </aside>
+    </div>  
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy;
+          <span id="copyright">
+            2022
+          </span>
+          <a class="footer__my-github" href="https://github.com/greg-front-end">github
+          </a>
+        </div>
+        <div class="footer__rsschool-link">
+          <a class="footer__rss-link" href="https://rs.school/js-stage0/">Rolling Scopes School</a>
+        </div>
+      </div>
+    </div>
+  </footer>
   <script src="./js/index.js" defer type="module"></script>
 </body> 
 </html>

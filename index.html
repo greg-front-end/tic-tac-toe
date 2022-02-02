@@ -11,34 +11,68 @@
   <title>Tic Tac Toe game</title>
 </head>
 <body>
+  <!-- ============ GREETING POPUP ============ -->
+  <div class="greet">
+    <div class="container">
+      <h2 class="greet__title">Tic Tok Toe</h2>
+      <div class="greet__inner">
+        <div class="greet__start">
+          <button class="greet__start-btn">Start</button>
+        </div>
+        <div class="greet__players">
+          <button class="greet__single-btn">Single game</button>
+          <button class="greet__multiplay-btn">Multiplay</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ============ WINNER POPUP ============ -->
+  <div class="winner">
+    <div class="container">
+      <div class="winner__inner">
+        <h2 class="winner__title"></h2>
+        <p class="winner__text"></p>
+        <button class="winner__btn">Start new game</button>
+      </div>
+    </div>
+  </div>
+  <!-- ============ HEADER ============ -->
   <header class="intro">
     <div class="container">
-      <h1 class="intro__title">Welcome Tic Toc Toe game</h1>
+      <h1 class="intro__title">Welcome to Tic Toc Toe game</h1>
     </div>
   </header>
   <!-- ============ MAIN ============ -->
-  <main class="main">
-    <div class="container">
-      <div class="descr"></div>
-    </div>
-    <div class="container">
-      <!-- Desk for play -->
-      <section class="board">
-        <div class="board__sqr-1"></div>
-        <div class="board__sqr-2"></div>
-        <div class="board__sqr-3"></div>
-        <div class="board__sqr-4"></div>
-        <div class="board__sqr-5"></div>
-        <div class="board__sqr-6"></div>
-        <div class="board__sqr-7"></div>
-        <div class="board__sqr-8"></div>
-        <div class="board__sqr-9"></div>
-      </section>
-      <!-- High score table -->
-      <aside class="score">
-        <h2 class="score__title">High score</h2>
-      </aside>
-    </div>  
+  <main class="main container">
+    <!-- Board for play -->
+    <section class="board">
+      <div class="board__inner">
+        <div class="board__sqr-1 board__sqr"></div>
+        <div class="board__sqr-2 board__sqr"></div>
+        <div class="board__sqr-3 board__sqr"></div>
+        <div class="board__sqr-4 board__sqr"></div>
+        <div class="board__sqr-5 board__sqr"></div>
+        <div class="board__sqr-6 board__sqr"></div>
+        <div class="board__sqr-7 board__sqr"></div>
+        <div class="board__sqr-8 board__sqr"></div>
+        <div class="board__sqr-9 board__sqr"></div>
+      </div>
+    </section>
+    <!-- High score table -->
+    <aside class="score">
+      <h2 class="score__title">High score</h2>
+      <div class="score__inner">
+        <span>X: won for 5 steps</span>
+        <span>Y: won for 3 steps</span>
+        <span>X: won for 6 steps</span>
+        <span>X: won for 5 steps</span>
+        <span>Y: won for 3 steps</span>
+        <span>X: won for 6 steps</span>
+        <span>X: won for 5 steps</span>
+        <span>Y: won for 3 steps</span>
+        <span>X: won for 6 steps</span>
+      </div>
+    </aside> 
   </main>
 
   <!-- ============ FOOTER ============ -->

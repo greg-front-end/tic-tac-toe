@@ -117,10 +117,98 @@ input {
   padding-right: var(--side-padding);
   padding-left: var(--side-padding);
 }
-
+/*=============== HEADER ===============*/
+header {
+  background-color: var(--bg-green-color);
+}
+.intro__title {
+  text-align: center;
+  padding-top: clamp(20px, calc(40 / 1480 * 100vw), 40px);
+  padding-bottom: clamp(20px, calc(40 / 1480 * 100vw), 40px);
+  font-size: clamp(20px, calc(40 / 1480 * 100vw), 40px);;
+}
+/*=============== MAIN ===============*/
+.main {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+// Board
+.board {
+  &__inner {
+    width: 100%;
+    max-width: 600px;
+    min-height: 600px;
+    background-color: var(--bg-green-dark-color);
+    margin: 50px 0;
+    border-radius: 10px;
+    display: grid;
+    align-items: center;
+    place-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    box-shadow: 4px 4px rgba($color: #fff, $alpha: 1);
+  }
+  &__sqr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 200px;
+    min-height: 200px;
+    border: 2px solid var(--white-color);
+    border-radius: 10px;
+  }
+  &__sqr-1,
+  &__sqr-2,
+  &__sqr-3 {
+    border-top: none;
+  }
+  &__sqr-1,
+  &__sqr-4,
+  &__sqr-7 {
+    border-left: none;
+  }
+  &__sqr-7,
+  &__sqr-8,
+  &__sqr-9 {
+    border-bottom: none;
+  }
+  &__sqr-3,
+  &__sqr-6,
+  &__sqr-9 {
+    border-right: none;
+  }
+}
+// High score
+.score {
+  width: 100%;
+  max-width: 300px;
+  min-height: 300px;
+  max-height: 600px;
+  margin: 50px 0;
+  padding: 10px;
+  text-align: center;
+  border: 2px solid var(--white-color);
+  border-radius: 10px;
+  overflow-y: scroll;
+  &__title {
+    font-size: clamp(20px, calc(24 / 1480 * 100vw), 24px);
+    background-color: var(--bg-green-color);
+    border-radius: 6px;
+  }
+  &__inner {
+    text-decoration: underline;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+}
 /*=============== FOOTER ===============*/
+.footer {
+  background-color: var(--bg-green-color);
+}
 .footer__inner {
-  height: 150px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -144,7 +232,7 @@ input {
   align-items: center;
 }
 .footer a:hover {
-  color: var(--bg-green-color);
+  color: var(--bg-color-dark);
 }
 .footer__link svg {
   width: 32px;

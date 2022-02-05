@@ -137,6 +137,9 @@ input {
     transform: translateY(0px);
     box-shadow: none;
   }
+  @media screen and (max-width: 767px) {
+    font-size: 20px;
+  }
 }
 /*=============== GREETING POPUP ===============*/
 .greet {
@@ -285,6 +288,10 @@ svg {
   width: 150px;
   height: 150px;
   position: relative;
+  @media screen and (max-width: 767px) {
+    width: 60px;
+    height: 60px;
+  }
 }
 // RECTANGLES
 rect {

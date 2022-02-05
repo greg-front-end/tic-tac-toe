@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ============ FONTS ============ -->
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- ============ STYLES ============ -->
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Tic Tac Toe game</title>
+</head>
+<body>
+  <!-- ============ AUDIO ============ -->
+  <!-- Draw pencil sound -->
+  <audio class="draw-sound" src="./assets/audio/draw_circle_cross.m4a"></audio>
+  <!-- ============ GREETING POPUP ============ -->
+  <div class="greet">
+    <div class="container">
+      <div class="greet__inner">
+        <div class="greet__text">
+          <span>Welcome to</span>
+          <h2 class="greet__title">Tic <span>Tac</span> Toe</h2>
+          <span>game</span>
+        </div>
+        <div class="greet__start">
+          <span class="greet__descr">Press start for new game</span>
+          <button class="greet__start-btn btn">Start</button>
+        </div>
+        <div class="greet__players">
+          <span>Play with computer or multiplay?</span>
+          <button class="greet__single-btn btn">Single game</button>
+          <button class="greet__multiplay-btn btn">Multiplay</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ============ WINNER POPUP ============ -->
+  <div class="winner">
+    <div class="container">
+      <div class="winner__inner">
+        <h2 class="winner__title">Congratulations, x won!</h2>
+        <p class="winner__text">Player <span>"X"</span> won the game for 5 steps</p>
+        <button class="winner__btn btn"><span>Start</span>a new game</button>
+      </div>
+    </div>
+  </div>
+  <!-- ============ HEADER ============ -->
+  <header class="intro">
+    <div class="container">
+      <h1 class="intro__title">Welcome to Tic Tac Toe game</h1>
+    </div>
+  </header>
+  <!-- ============ MAIN ============ -->
+  <main class="main container">
+    <!-- Board for play -->
+    <section class="board">
+      <div class="board__inner">
+        <div class="board__sqr-0 board__sqr"></div>
+        <div class="board__sqr-1 board__sqr"></div>
+        <div class="board__sqr-2 board__sqr"></div>
+        <div class="board__sqr-3 board__sqr"></div>
+        <div class="board__sqr-4 board__sqr"></div>
+        <div class="board__sqr-5 board__sqr"></div>
+        <div class="board__sqr-6 board__sqr"></div>
+        <div class="board__sqr-7 board__sqr"></div>
+        <div class="board__sqr-8 board__sqr"></div>
+      </div>
+    </section>
+    <!-- High score table -->
+    <aside class="score">
+      <h2 class="score__title">High score</h2>
+      <div class="score__inner">
+      </div>
+    </aside> 
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy;
+          <span id="copyright">
+            2022
+          </span>
+          <a class="footer__my-github" href="https://github.com/greg-front-end">github
+          </a>
+        </div>
+        <div class="footer__rsschool-link">
+          <a class="footer__rss-link" href="https://rs.school/js-stage0/">Rolling Scopes School</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="./js/index.js" defer type="module"></script>
+</body> 
+</html>

@@ -181,6 +181,12 @@ input {
           box-shadow: none;
 }
 
+@media screen and (max-width: 767px) {
+  .btn {
+    font-size: 20px;
+  }
+}
+
 /*=============== GREETING POPUP ===============*/
 .greet {
   position: fixed;
@@ -401,6 +407,13 @@ svg {
   width: 150px;
   height: 150px;
   position: relative;
+}
+
+@media screen and (max-width: 767px) {
+  svg {
+    width: 60px;
+    height: 60px;
+  }
 }
 
 rect {

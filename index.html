@@ -11,6 +11,9 @@
   <title>Tic Tac Toe game</title>
 </head>
 <body>
+  <!-- ============ AUDIO ============ -->
+  <!-- Draw pencil sound -->
+  <audio class="draw-sound" src="./assets/audio/draw_circle_cross.m4a"></audio>
   <!-- ============ GREETING POPUP ============ -->
   <div class="greet">
     <div class="container">
@@ -25,6 +28,7 @@
           <button class="greet__start-btn btn">Start</button>
         </div>
         <div class="greet__players">
+          <span>Play with computer or multiplay?</span>
           <button class="greet__single-btn btn">Single game</button>
           <button class="greet__multiplay-btn btn">Multiplay</button>
         </div>
@@ -35,9 +39,9 @@
   <div class="winner">
     <div class="container">
       <div class="winner__inner">
-        <h2 class="winner__title">Congratulations, You are win!</h2>
+        <h2 class="winner__title">Congratulations, x won!</h2>
         <p class="winner__text">Player <span>"X"</span> won the game for 5 steps</p>
-        <button class="winner__btn btn">Start new game</button>
+        <button class="winner__btn btn"><span>Start</span>a new game</button>
       </div>
     </div>
   </div>
@@ -52,6 +56,7 @@
     <!-- Board for play -->
     <section class="board">
       <div class="board__inner">
+        <div class="board__sqr-0 board__sqr"></div>
         <div class="board__sqr-1 board__sqr"></div>
         <div class="board__sqr-2 board__sqr"></div>
         <div class="board__sqr-3 board__sqr"></div>
@@ -60,22 +65,12 @@
         <div class="board__sqr-6 board__sqr"></div>
         <div class="board__sqr-7 board__sqr"></div>
         <div class="board__sqr-8 board__sqr"></div>
-        <div class="board__sqr-9 board__sqr"></div>
       </div>
     </section>
     <!-- High score table -->
     <aside class="score">
       <h2 class="score__title">High score</h2>
       <div class="score__inner">
-        <span>X: won for 5 steps</span>
-        <span>Y: won for 3 steps</span>
-        <span>X: won for 6 steps</span>
-        <span>X: won for 5 steps</span>
-        <span>Y: won for 3 steps</span>
-        <span>X: won for 6 steps</span>
-        <span>X: won for 5 steps</span>
-        <span>Y: won for 3 steps</span>
-        <span>X: won for 6 steps</span>
       </div>
     </aside> 
   </main>

@@ -127,11 +127,11 @@ input {
   color: var(--white-color);
   text-transform: uppercase;
   font-size: 24px;
-  margin: 10px 0;
+  margin: 16px 0;
   display: block;
   padding: 10px 16px;
-  transform: translateY(-5px);
-  box-shadow: 4px 4px 6px var(--white-color);
+  transform: translateY(-2px);
+  box-shadow: 2px 2px 6px var(--white-color);
   &:hover {
     color: var(--bg-green-color);
     transform: translateY(0px);
@@ -197,23 +197,27 @@ input {
     visibility: visible;
     opacity: 1;
   }
-  &__descr {
-    font-size: 14px;
-    text-decoration: underline;
-  }
   &__start--hide {
     opacity: 0;
     transform: scale(0);
     visibility: hidden;
   }
+  &__descr {
+    font-size: 14px;
+    text-decoration: underline;
+  }
   &__players {
     position: absolute;
-    bottom: 18%;
+    bottom: -0px;
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
     opacity: 0;
     visibility: hidden;
     transition: var(--transiion-time);
+    span {
+      font-size: 14px;
+      margin: -10px;
+    }
   }
   &__players--show {
     transform: translate(-50%, -50%) scale(1);
@@ -258,7 +262,7 @@ input {
     gap: 30px;
     margin: 0 auto;
     background-color: var(--bg-green-color);
-    width: 25%;
+    width: 280px;
     height: 70vh;
     border-radius: 10px;
     transition: var(--transiion-time);
@@ -271,12 +275,59 @@ input {
   }
   &__btn {
     width: 80%;
+    span {
+      display: block;
+    }
   }
 }
-/*=============== HEADER ===============*/
-header {
-  background-color: var(--bg-green-color);
+/*=============== ICONS ===============*/
+svg {
+  width: 150px;
+  height: 150px;
+  position: relative;
 }
+// RECTANGLES
+rect {
+  width: 100%;
+  height: 6px;
+	stroke-width: 8px;
+}
+.cross {
+  fill: var(--white-color);
+  width: 0;
+  animation: drawWidth 0.4s linear forwards;
+}
+.cross-1 {
+  transform: translate(25%, 20%) rotate(45deg);
+}
+.cross-2 {
+  transform: translate(20%, 90%) rotate(-45deg);
+}
+
+@keyframes drawWidth {
+  from {
+    width: 0
+  }
+  to {
+    width: 100%;
+  }
+}
+// CIRCLES
+.circle {
+	--circle-len: 320px;
+	fill: none;
+	stroke: #F9463D;
+	stroke-width: 8px;
+	stroke-dasharray: var(--circle-len);
+	stroke-dashoffset: var(--circle-len);
+	animation: draw .4s linear forwards;
+  transform: translate(50%, 50%);
+}
+
+@keyframes draw {
+	to { stroke-dashoffset: 0px; }
+}
+/*=============== HEADER ===============*/
 .intro__title {
   text-align: center;
   padding-top: clamp(20px, calc(40 / 1480 * 100vw), 40px);
@@ -288,7 +339,7 @@ header {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 60px;
 }
 // Board
 .board {
@@ -296,14 +347,13 @@ header {
     width: 100%;
     max-width: 600px;
     min-height: 600px;
-    background-color: var(--bg-green-dark-color);
+    background-color: var(--color-light-dark);
     margin: 50px 0;
     border-radius: 10px;
     display: grid;
     align-items: center;
     place-items: center;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    box-shadow: 4px 4px rgba($color: #fff, $alpha: 1);
   }
   &__sqr {
     display: flex;
@@ -311,27 +361,27 @@ header {
     align-items: center;
     min-width: 200px;
     min-height: 200px;
-    border: 2px solid var(--white-color);
-    border-radius: 10px;
+    padding: 15px;
+    border: 1px solid var(--white-color);
   }
+  &__sqr-0,
   &__sqr-1,
-  &__sqr-2,
-  &__sqr-3 {
+  &__sqr-2 {
     border-top: none;
   }
-  &__sqr-1,
-  &__sqr-4,
-  &__sqr-7 {
+  &__sqr-0,
+  &__sqr-3,
+  &__sqr-6 {
     border-left: none;
   }
+  &__sqr-6,
   &__sqr-7,
-  &__sqr-8,
-  &__sqr-9 {
+  &__sqr-8 {
     border-bottom: none;
   }
-  &__sqr-3,
-  &__sqr-6,
-  &__sqr-9 {
+  &__sqr-2,
+  &__sqr-5,
+  &__sqr-8 {
     border-right: none;
   }
 }
@@ -353,10 +403,12 @@ header {
     border-radius: 6px;
   }
   &__inner {
-    text-decoration: underline;
     display: flex;
     flex-direction: column;
     text-align: left;
+    span:not(:last-child) {
+      box-shadow: 0 4px 2px -2px;
+    }
   }
 }
 /*=============== FOOTER ===============*/

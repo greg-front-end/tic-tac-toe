@@ -334,6 +334,63 @@ rect {
 @keyframes draw {
 	to { stroke-dashoffset: 0px; }
 }
+
+// Hover effects for icons
+.board__sqr:not(.x):not(.o)::before,
+.board__sqr:not(.x):not(.o)::after {
+  content: '';
+  position: absolute;
+  transition: var(--transiion-time);
+  transform: scale(0.5);
+  opacity: 0;
+}
+.board__inner.x .board__sqr:not(.x):not(.o):hover::before,
+.board__inner.x .board__sqr:not(.x):not(.o):hover::after {
+  content: '';
+  position: absolute;
+  left: 16%;
+  top: 54%;
+  width: 77%;
+  height: 8px;
+  background-color: var(--white-color);
+}
+.board__inner.x .board__sqr:not(.x):not(.o):hover::before {
+  transform: rotate(45deg) scale(1);
+  transition: var(--transiion-time);
+  opacity: 0.8;
+}
+.board__inner.x .board__sqr:not(.x):not(.o):hover::after  {
+  transform: rotate(-45deg) scale(1);
+  transition: var(--transiion-time);
+  opacity: 0.8;
+}
+
+.board__inner.o .board__sqr:not(.x):not(.o):hover::before,
+.board__inner.o .board__sqr:not(.x):not(.o):hover::after {
+  content: '';
+  position: absolute;
+  left: -20%;
+  top: -20%;
+  width: 140%;
+  height: 140%;
+  background-color: #F9463D;
+  border-radius: 50%;
+  opacity: .8;
+}
+.board__inner.o .board__sqr:not(.x):not(.o):hover::after {
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background-color: var(--color-light-dark);
+  opacity: 1;
+}
+
+.board__sqr.x, 
+.board__sqr.o {
+  cursor: not-allowed;
+}
+
 /*=============== HEADER ===============*/
 .intro__title {
   text-align: center;
@@ -377,6 +434,8 @@ rect {
     min-height: 200px;
     padding: 15px;
     border: 1px solid var(--white-color);
+    position: relative;
+    cursor: pointer;
     @media screen and (max-width: 767px) {
       min-width: 100px;
       min-height: 100px;
@@ -461,9 +520,13 @@ rect {
   color: var(--bg-color-dark);
 }
 .footer__link svg {
-  width: 32px;
-  height: 32px;
+  width: 80px;
+  height: 80px;
   fill: var(--color-light-dark);
+  transition: var(--transiion-time);
+}
+.footer__link svg:hover {
+  fill: var(--white-color);
 }
 .footer__link-item svg {
   transition: all 0.5s;

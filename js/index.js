@@ -35,29 +35,23 @@ window.addEventListener('DOMContentLoaded', () => {
   const dataForScore = {}
   const dataValues = [null, null, null, null, null, null, null, null, null]
   // ====================== FUNCTIONS ====================== //
-  
-  // Check is multiplay mode
-  const checkIsMultiplay = () => {
-    if (isMultiplay === false) {
-      isMultiplay = true
-    } else {
-      isMultiplay = false
-    }
-  }
 
   // Get random move if single game
-  const getRandomMove = (min, max) => {
+  const getRandomMove = (min, max) => { 
     let move = 0;
     move = Math.floor(Math.random() * (max - min + 1)) + min
+
     while(sqrs[move].hasChildNodes()) {
       move = Math.floor(Math.random() * (max - min + 1)) + min
       if (dataValues.every(item => item !== null)) return false
     }
+
     drwaO(sqrs[move])
     getFigure(move)
     turnMove()
     playerStepsY++
     getWinner(dataValues, 'o')
+    sqrs[move].classList.add('o')
   }
 
   // Init winner popup values
@@ -139,8 +133,9 @@ window.addEventListener('DOMContentLoaded', () => {
         winnerPopup.classList.add('winner--show')
         initWinnerPopupText(figure, 'win')
         setLastTenGameLocalStorge()
+        return 
       } 
-      else if (data.every(item => item !== null)) {
+      if (data.every(item => item !== null)) {
         winnerPopup.classList.add('winner--show')
         initWinnerPopupText(figure, 'nobody')
         setLastTenGameLocalStorge()
@@ -152,6 +147,8 @@ window.addEventListener('DOMContentLoaded', () => {
     sqrs.forEach(sqr => {
       if (sqr.hasChildNodes()) {
         sqr.innerHTML = ''
+        sqr.classList.remove('x')
+        sqr.classList.remove('o')
       }
     })
     for (let i = 0; i < dataValues.length; i++) {
@@ -162,6 +159,10 @@ window.addEventListener('DOMContentLoaded', () => {
     playerStepsY = 0
     isMultiplay = false
     turn = 'x'
+    if (board.classList.contains('o')) {
+      board.classList.remove('o')
+      board.classList.add('x')
+    }
   }
   // Open new game popup
   const openGreetPopup = () => {
@@ -175,6 +176,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const svg = document.createElementNS(svgns, "svg");
     svg.setAttribute('xmlns', svgns)
     svg.setAttribute('viewBox', '0 0 120 120')
+    svg.classList.add('svg-x')
 
     // Make group tag
     const g = document.createElementNS(svgns, 'g')
@@ -201,6 +203,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const svg = document.createElementNS('http://www.w3.org/2000/svg', "svg");
     svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg')
     svg.setAttribute('viewBox', '0 0 120 120')
+    svg.classList.add('svg-o')
     // Make circle
     const cir = document.createElementNS("http://www.w3.org/2000/svg", "circle");
     cir.setAttribute("r", 50);
@@ -231,6 +234,17 @@ window.addEventListener('DOMContentLoaded', () => {
       turn = 'x'
     }
   }
+
+  // Add class for hover icons
+  const addXOtoBoard = () => {
+    if (board.classList.contains('x')) {
+      board.classList.add('o')
+      board.classList.remove('x')
+    } else {
+      board.classList.add('x')
+      board.classList.remove('o')
+    }
+  }
   // ====================== LISTENERS ====================== //   
 
   // Hide start button and show settings for start game
@@ -248,11 +262,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
     if (btn.classList.contains('greet__single-btn')) {
       isMultiplay = true
-      console.log('multiplay')
-    } else {
+      greetPopup.classList.add('greet--hide')
+    } else if (btn.classList.contains('greet__multiplay-btn')) {
       isMultiplay = false
+      greetPopup.classList.add('greet--hide')
     }
-    greetPopup.classList.add('greet--hide')
   })
 
   // Draw figure on every sqrs when user click on it
@@ -263,13 +277,16 @@ window.addEventListener('DOMContentLoaded', () => {
         if (turn === 'x') {
           if (isMultiplay === true) {
             setTimeout(() => getRandomMove(0,8), 300)
+            addXOtoBoard()
           }
           drawX(place)
           audio.play()
           getFigure(place)
-          turnMove()
           playerStepsX++
-          getWinner(dataValues, 'x')        
+          getWinner(dataValues, 'x')          
+          turnMove()
+          addXOtoBoard()
+          sqr.classList.add('x')
         } else {
           drwaO(place)
           audio.play()
@@ -277,6 +294,8 @@ window.addEventListener('DOMContentLoaded', () => {
           turnMove()
           playerStepsY++
           getWinner(dataValues, 'o')
+          addXOtoBoard()
+          sqr.classList.add('o')
         }
       }
     })
